@@ -1,10 +1,9 @@
-const refs = {
-  input: document.querySelector("#name-input"),
-  spam: document.querySelector("#name-output"),
+const textInput = document.querySelector("#name-input");
+const textOutput = document.querySelector("#name-output");
+
+const calbackInput = (event) => {
+  textOutput.textContent =
+    textInput.value.length !== 0 ? event.currentTarget.value : "Anonymous";
 };
 
-refs.input.addEventListener("input", onInputChange);
-
-function onInputChange(event) {
-  refs.spam.textContent = event.currentTarget.value;
-}
+textInput.addEventListener("input", calbackInput);
